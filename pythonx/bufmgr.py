@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 from vimenv import env
 import saveable
+import os
 
-BUFMGR_FILE=env.var("g:g_DataPath")+"\\bufmgr"
+if os.name=="nt":
+    BUFMGR_FILE=env.var("g:g_DataPath")+"\\bufmgr"
+else:
+    BUFMGR_FILE=env.var("g:g_DataPath")+"/bufmgr"
 
 class CBufMgr(saveable.CSave):
 
